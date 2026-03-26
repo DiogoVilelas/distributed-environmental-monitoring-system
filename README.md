@@ -51,7 +51,7 @@ The system validates IoT devices, processes incoming data, stores it in a Postgr
 ├── admin-cli/          # CLI admin client
 ├── proto/              # gRPC definitions
 ├── docker-compose.yml
-├── report.pdf
+├── relatorio_t02SD_62347.pdf
 └── README.md
 ```
 
@@ -227,7 +227,7 @@ Performance analysis and protocol comparison (MQTT vs gRPC vs REST) are detailed
 The full report is available in:
 
 ```
-report.pdf
+relatorio_t02SD_62347.pdf
 ```
 
 It includes:
