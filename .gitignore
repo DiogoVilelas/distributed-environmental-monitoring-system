@@ -1,0 +1,34 @@
+# Maven
+target/
+**/target/
+
+# Java
+*.class
+*.log
+
+# IDEs
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+.factorypath
+.springBeans
+.sts4-cache
+
+
+# Env files
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+build/
+**/build/
+
+# Generated files
+out/
+bin/

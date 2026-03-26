@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: sd_postgres_t02
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - pgdata_t02:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: sd_pgadmin_t02
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - "${PGADMIN_PORT}:80"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  activemq:
+    image: symptoma/activemq:latest
+    container_name: sd_activemq_t02
+    environment:
+      ACTIVEMQ_USERNAME: "62347"
+      ACTIVEMQ_PASSWORD: "WORKT02SD"
+      ACTIVEMQ_WEBADMIN_USERNAME: "62347"
+      ACTIVEMQ_WEBADMIN_PASSWORD: "WORKT02SD"
+      ACTIVEMQ_WEBCONSOLE_USE_DEFAULT_ADDRESS: "true"
+    ports:
+      - "${ACTIVEMQ_WEB_PORT}:8161"
+      - "${ACTIVEMQ_MQTT_PORT}:1883"
+      - "${ACTIVEMQ_OPENWIRE_PORT}:61616"
+    restart: unless-stopped
+
+volumes:
+  pgdata_t02:
+
